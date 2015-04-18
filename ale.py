@@ -20,6 +20,7 @@ def main():
     while True:
         com = raw_input(wcolors.color.YELLOW + "ale> " + wcolors.color.ENDC).split()
         if com[0] == "google":
+            print(wcolors.color.GREEN + "Searching in Google => " + wcolors.color.ENDC + wcolors.color.RED + com[1] + wcolors.color.ENDC)
             webbrowser.open('https://www.google.ru/?q=' + com[1] + '#newwindow=1&q=' + com[1])
 
 if __name__ == "__main__":
