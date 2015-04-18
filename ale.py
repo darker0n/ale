@@ -27,22 +27,22 @@ def main():
     while True:
         com = raw_input(wcolors.color.YELLOW + "ale> " + wcolors.color.ENDC).split()
         if com[0] == "google":
-            print(wcolors.color.GREEN + "Searching in Google => " + wcolors.color.ENDC + wcolors.color.RED + com[1] + wcolors.color.ENDC)
+            print(wcolors.color.GREEN + "Searching in Google => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
             webbrowser.open('https://www.google.com/search?q=' + parse_request(com[1:]))
         elif com[0] == "maps":
-            print(wcolors.color.GREEN + "Searching in Google Maps => " + wcolors.color.ENDC + wcolors.color.RED + com[1] + wcolors.color.ENDC)
+            print(wcolors.color.GREEN + "Searching in Google Maps => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
             webbrowser.open('https://www.google.com/maps/?q=' + parse_request(com[1:]))
         elif com[0] == "youtube":
-            print(wcolors.color.GREEN + "Searching in Youtube => " + wcolors.color.ENDC + wcolors.color.RED + com[1] + wcolors.color.ENDC)
+            print(wcolors.color.GREEN + "Searching in Youtube => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
             webbrowser.open('https://www.youtube.com/results?search_query=' + parse_request(com[1:]))
         elif com[0] == "yahoo":
-            print(wcolors.color.GREEN + "Searching in Yahoo => " + wcolors.color.ENDC + wcolors.color.RED + com[1] + wcolors.color.ENDC)
+            print(wcolors.color.GREEN + "Searching in Yahoo => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
             webbrowser.open('https://search.yahoo.com/search?p=' + parse_request(com[1:]))
         elif com[0] == "gmail":
             print(wcolors.color.GREEN + "Opening Gmail..." + wcolors.color.ENDC)
             webbrowser.open('https://mail.google.com/mail')
         else:
-            print wcolors.color.RED + "Invalid command => " + com[0] + "." + wcolors.color.ENDC + wcolors.color.GREEN + " Trying search in Google." + wcolors.color.ENDC
+            print wcolors.color.RED + "Invalid command => " + parse_request(com[0:]) + "." + wcolors.color.ENDC + wcolors.color.GREEN + " Trying search in Google." + wcolors.color.ENDC
             webbrowser.open('https://www.google.com/search?q=' + parse_request(com[0:]))
 
 if __name__ == "__main__":
