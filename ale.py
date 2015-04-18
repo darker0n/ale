@@ -22,6 +22,9 @@ def main():
         if com[0] == "google":
             print(wcolors.color.GREEN + "Searching in Google => " + wcolors.color.ENDC + wcolors.color.RED + com[1] + wcolors.color.ENDC)
             webbrowser.open('https://www.google.ru/?q=' + com[1] + '#newwindow=1&q=' + com[1])
+        else:
+            print wcolors.color.RED + "Invalid command => " + com[0] + "." + wcolors.color.ENDC + wcolors.color.GREEN + " Trying search in Google." + wcolors.color.ENDC
+            webbrowser.open('https://www.google.ru/?q=' + com[0] + '#newwindow=1&q=' + com[0])
 
 if __name__ == "__main__":
     try:
