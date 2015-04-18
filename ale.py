@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import webbrowser
 import readline
+from core import wcolors
 
 commands = ["google"]
 
@@ -12,9 +13,18 @@ def completer(text, state):
     else:
         return None
 
-readline.parse_and_bind("tab: complete")
-readline.set_completer(completer)
-while True:
-    com = raw_input("ale> ").split()
-    if com[0] == "google":
-        webbrowser.open('https://www.google.ru/?q=' + com[1] + '#newwindow=1&q=' + com[1])
+
+def main():
+    readline.parse_and_bind("tab: complete")
+    readline.set_completer(completer)
+    while True:
+        com = raw_input(wcolors.color.YELLOW + "ale> " + wcolors.color.ENDC).split()
+        if com[0] == "google":
+            webbrowser.open('https://www.google.ru/?q=' + com[1] + '#newwindow=1&q=' + com[1])
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        print(wcolors.color.RED + "\n[*] (Ctrl + C ) Detected, Trying To Exit ..." + wcolors.color.ENDC)
+        print(wcolors.color.YELLOW + "[*] Thank You For Using Infinity =)" + wcolors.color.ENDC)
