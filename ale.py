@@ -3,7 +3,7 @@ import webbrowser
 import readline
 from core import wcolors
 
-commands = ["google", "maps"]
+commands = ["google", "maps", "youtube"]
 
 
 def completer(text, state):
@@ -25,6 +25,9 @@ def main():
         elif com[0] == "maps":
             print(wcolors.color.GREEN + "Searching in Google Maps => " + wcolors.color.ENDC + wcolors.color.RED + com[1] + wcolors.color.ENDC)
             webbrowser.open('https://www.google.com/maps/?q=' + com[1])
+        elif com[0] == "youtube":
+            print(wcolors.color.GREEN + "Searching in Youtube => " + wcolors.color.ENDC + wcolors.color.RED + com[1] + wcolors.color.ENDC)
+            webbrowser.open('https://www.youtube.com/results?search_query=' + com[1])
         else:
             print wcolors.color.RED + "Invalid command => " + com[0] + "." + wcolors.color.ENDC + wcolors.color.GREEN + " Trying search in Google." + wcolors.color.ENDC
             webbrowser.open('https://www.google.com/search?q=' + com[0])
