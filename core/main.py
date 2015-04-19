@@ -6,7 +6,7 @@ import os
 from core import wcolors
 
 commands = ["google", "maps", "youtube", "yahoo", "gmail", "wiki", "notes", "amazon", "remove", "rm", "exec", "weather",
-            "facebook", "emptytrash", "wolfram"]
+            "facebook", "emptytrash", "wolfram", "rotten", "translate"]
 
 
 def completer(text, state):
@@ -70,6 +70,12 @@ def main():
         elif com[0] == "wolfram":
             print(wcolors.color.GREEN + "Searching in Wolfram => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
             webbrowser.open('https://www.wolframalpha.com/input/?i=' + parse_request(com[1:]))
+        elif com[0] == "rotten":
+            print(wcolors.color.GREEN + "Searching in Rotten Tomatoes => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
+            webbrowser.open('http://www.rottentomatoes.com/search/?search=' + parse_request(com[1:]))
+        elif com[0] == "translate":
+            print(wcolors.color.GREEN + "Translating using Google Translate => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
+            webbrowser.open('https://translate.google.com/?text=' + parse_request(com[1:]))
         else:
             print wcolors.color.RED + "Invalid command => " + parse_request(com[0:]) + "." + wcolors.color.ENDC + wcolors.color.GREEN + " Trying search in Google." + wcolors.color.ENDC
             webbrowser.open('https://www.google.com/search?q=' + parse_request(com[0:]))
