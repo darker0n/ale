@@ -5,7 +5,8 @@ import readline
 import os
 from core import wcolors
 
-commands = ["google", "maps", "youtube", "yahoo", "gmail", "wiki", "notes", "amazon", "remove", "rm", "exec", "weather"]
+commands = ["google", "maps", "youtube", "yahoo", "gmail", "wiki", "notes", "amazon", "remove", "rm", "exec", "weather",
+            "facebook", "emptytrash"]
 
 
 def completer(text, state):
@@ -60,6 +61,12 @@ def main():
         elif com[0] == "weather":
             print(wcolors.color.GREEN + "Opening Weather Underground for => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
             webbrowser.open('http://www.wunderground.com/cgi-bin/findweather/hdfForecast?query=' + parse_request(com[1:]))
+        elif com[0] == "facebook":
+            print(wcolors.color.GREEN + "Searching in Facebook => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
+            webbrowser.open('https://www.facebook.com/search/results.php?q=' + parse_request(com[1:]))
+        elif com[0] == "emptytrash":
+            print(wcolors.color.GREEN + "Cleaning trash..." + wcolors.color.ENDC)
+            os.system("trash-empty")
         else:
             print wcolors.color.RED + "Invalid command => " + parse_request(com[0:]) + "." + wcolors.color.ENDC + wcolors.color.GREEN + " Trying search in Google." + wcolors.color.ENDC
             webbrowser.open('https://www.google.com/search?q=' + parse_request(com[0:]))
