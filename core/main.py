@@ -6,7 +6,7 @@ import os
 from core import wcolors
 
 commands = ["google", "maps", "youtube", "yahoo", "gmail", "wiki", "notes", "amazon", "remove", "rm", "exec", "weather",
-            "facebook", "emptytrash"]
+            "facebook", "emptytrash", "wolfram"]
 
 
 def completer(text, state):
@@ -67,6 +67,9 @@ def main():
         elif com[0] == "emptytrash":
             print(wcolors.color.GREEN + "Cleaning trash..." + wcolors.color.ENDC)
             os.system("trash-empty")
+        elif com[0] == "wolfram":
+            print(wcolors.color.GREEN + "Searching in Wolfram => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
+            webbrowser.open('https://www.wolframalpha.com/input/?i=' + parse_request(com[1:]))
         else:
             print wcolors.color.RED + "Invalid command => " + parse_request(com[0:]) + "." + wcolors.color.ENDC + wcolors.color.GREEN + " Trying search in Google." + wcolors.color.ENDC
             webbrowser.open('https://www.google.com/search?q=' + parse_request(com[0:]))
