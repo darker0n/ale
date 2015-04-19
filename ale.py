@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 import webbrowser
 import readline
+import os
 from core import wcolors
 
-commands = ["google", "maps", "youtube", "yahoo", "gmail", "wiki"]
+commands = ["google", "maps", "youtube", "yahoo", "gmail", "wiki", "notes", "amazon"]
 
 
 def completer(text, state):
@@ -44,6 +45,12 @@ def main():
         elif com[0] == "wiki":
             print(wcolors.color.GREEN + "Searching in Wikipedia => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
             webbrowser.open('https://wikipedia.org/wiki/Special:Search/' + parse_request(com[1:]))
+        elif com[0] == "notes":
+            print(wcolors.color.GREEN + "Opening Notes..." + wcolors.color.ENDC)
+            os.system("open -a /Applications/Notes.app")
+        elif com[0] == "amazon":
+            print(wcolors.color.GREEN + "Searching in Amazon => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
+            webbrowser.open('http://www.amazon.com/s?url=search-alias=aps&field-keywords=' + parse_request(com[1:]))
         else:
             print wcolors.color.RED + "Invalid command => " + parse_request(com[0:]) + "." + wcolors.color.ENDC + wcolors.color.GREEN + " Trying search in Google." + wcolors.color.ENDC
             webbrowser.open('https://www.google.com/search?q=' + parse_request(com[0:]))
