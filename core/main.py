@@ -5,7 +5,7 @@ import readline
 import os
 from core import wcolors
 
-commands = ["google", "maps", "youtube", "yahoo", "gmail", "wiki", "notes", "amazon", "remove", "rm"]
+commands = ["google", "maps", "youtube", "yahoo", "gmail", "wiki", "notes", "amazon", "remove", "rm", "exec", "weather"]
 
 
 def completer(text, state):
@@ -55,6 +55,11 @@ def main():
         elif com[0] == "remove" or com[0] == "rm":
             print(wcolors.color.GREEN + "Removing => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
             os.remove(com[1])
+        elif com[0] == "exec":
+            os.system(parse_request(com[1:]))
+        elif com[0] == "weather":
+            print(wcolors.color.GREEN + "Opening Weather Underground for => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
+            webbrowser.open('http://www.wunderground.com/cgi-bin/findweather/hdfForecast?query=' + parse_request(com[1:]))
         else:
             print wcolors.color.RED + "Invalid command => " + parse_request(com[0:]) + "." + wcolors.color.ENDC + wcolors.color.GREEN + " Trying search in Google." + wcolors.color.ENDC
             webbrowser.open('https://www.google.com/search?q=' + parse_request(com[0:]))
