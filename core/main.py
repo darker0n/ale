@@ -6,7 +6,7 @@ import os
 from core import wcolors
 
 commands = ["google", "maps", "youtube", "yahoo", "gmail", "wiki", "notes", "amazon", "remove", "rm", "exec", "weather",
-            "facebook", "emptytrash", "wolfram", "rotten", "translate"]
+            "facebook", "emptytrash", "wolfram", "rotten", "translate"] + os.listdir("/Applications")
 
 
 def completer(text, state):
@@ -24,12 +24,34 @@ def parse_request(arr):
     return request
 
 
-def main():
+def word_space(path):
+    path = path.split(" ")
+    new_path = ""
+    i = 0
+    for x in path:
+        if len(path) - i == 1:
+            new_path += x
+        else:
+            new_path += x + "\\ "
+            i += 1
+    return new_path
+
+
+def start():
     readline.parse_and_bind("tab: complete")
     readline.set_completer(completer)
+    print (wcolors.color.GREEN + "Welcome to ale, smart shell for more productive work." + wcolors.color.ENDC)
+
+
+def main():
     while True:
         com = raw_input(wcolors.color.YELLOW + "ale> " + wcolors.color.ENDC).split()
-        if com[0] == "google":
+        if len(com) == 0:
+            main()
+        if parse_request(com[0:]).strip() in commands:
+            print(wcolors.color.GREEN + "Opening => " + parse_request(com[0:]).strip() + wcolors.color.ENDC)
+            os.system("open -a /Applications/" + word_space(parse_request(com[0:]).strip()))
+        elif com[0] == "google":
             print(wcolors.color.GREEN + "Searching in Google => " + wcolors.color.ENDC + wcolors.color.RED + parse_request(com[1:]) + wcolors.color.ENDC)
             webbrowser.open('https://www.google.com/search?q=' + parse_request(com[1:]))
         elif com[0] == "maps":

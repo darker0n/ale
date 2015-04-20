@@ -5,6 +5,7 @@ from core import main
 
 if __name__ == "__main__":
     try:
+        main.start()
         main.main()  # main program
     except KeyboardInterrupt:
         print(wcolors.color.RED + "\n[*] (Ctrl + C ) Detected, Trying To Exit ..." + wcolors.color.ENDC)
