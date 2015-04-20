@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import webbrowser
-import core.wcolors
+import wcolors
 
-print(core.wcolors.color.GREEN + "Opening Gmail..." + core.color.ENDC)
+print(wcolors.color.GREEN + "Opening Gmail..." + wcolors.color.ENDC)
 webbrowser.open('https://mail.google.com/mail')
