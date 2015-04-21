@@ -7,15 +7,14 @@ import imp
 
 from core import wcolors
 from core import parser
-from core import formules
+from core import formulas
 
+# List with all formulas
+formulas_list = parser.clear_list(formulas.formulas_list())
+# List with all applications
+applications = parser.applications_list()
 
-search_engines = ["google", "maps", "youtube", "yahoo", "wiki", "notes", "amazon", "weather",
-                  "facebook", "wolfram", "rotten", "translate"]
-
-applications = os.listdir("/Applications")
-
-commands = ["remove", "rm", "exec"] + applications + search_engines
+commands = applications + formulas_list
 
 
 def completer(text, state):
@@ -39,7 +38,7 @@ def main():
             main()
 
         # Searching command in Formules
-        elif com[0] + ".py" in formules.check_formules():
+        elif com[0] + ".py" in formulas.check_formulas():
             module = imp.load_source(com[0], "core/Formula/" + com[0] + ".py")
             formula = module.Formula(request=com[1:])
             formula.main()
@@ -47,7 +46,7 @@ def main():
         # Opening applications
         elif parser.parse_request(com[0:]).strip() in applications:
             print(wcolors.color.GREEN + "Opening => " + parser.parse_request(com[0:]).strip() + wcolors.color.ENDC)
-            os.system("open -a /Applications/" + parser.word_space(parser.parse_request(com[0:]).strip()))
+            os.system("open -a /Applications/" + parser.word_space(parser.parse_request(com[0:]).strip()) + ".app")
         else:
             print wcolors.color.RED + "Invalid command => " + parser.parse_request(com[
                                                                                    0:]) + "." + wcolors.color.ENDC + wcolors.color.GREEN + " Trying search in Google." + wcolors.color.ENDC

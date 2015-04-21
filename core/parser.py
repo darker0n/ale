@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os
 
 
 def parse_request(arr):
@@ -19,3 +20,14 @@ def word_space(path):
             new_path += x + "\\ "
             i += 1
     return new_path
+
+
+def clear_list(list):
+    for f in list:
+        if f.startswith('.') or f.startswith("__") or f.startswith(".localized"):
+            list.remove(f)
+    return list
+
+
+def applications_list():
+    return clear_list([w.replace('.app', "") for w in os.listdir("/Applications")])
