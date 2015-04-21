@@ -9,8 +9,8 @@ class Formula():
         self.request = request
 
     def open(self):
-        print(wcolors.color.GREEN + "Opening Gmail..." + wcolors.color.ENDC)
-        webbrowser.open('https://mail.google.com')
+        print(wcolors.color.GREEN + "Opening Google Drive..." + wcolors.color.ENDC)
+        webbrowser.open('https://drive.google.com')
 
     def main(self):
         self.open()
