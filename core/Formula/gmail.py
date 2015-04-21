@@ -3,5 +3,14 @@
 import webbrowser
 import wcolors
 
-print(wcolors.color.GREEN + "Opening Gmail..." + wcolors.color.ENDC)
-webbrowser.open('https://mail.google.com/mail')
+
+class Formula():
+    def __init__(self, request):
+        self.request = request
+
+    def open(self):
+        print(wcolors.color.GREEN + "Opening Gmail..." + wcolors.color.ENDC)
+        webbrowser.open('https://mail.google.com/mail')
+
+    def main(self):
+        self.open()
