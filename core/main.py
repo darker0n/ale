@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 
-import webbrowser
 import readline
 import os
 import imp
+import subprocess
 
 from core import wcolors
 from core import parser
 from core import formulas
+from core import invalid_command
 
 # List with all formulas
 formulas_list = parser.clear_list(formulas.formulas_list())
@@ -48,6 +49,7 @@ def main():
             print(wcolors.color.GREEN + "Opening => " + parser.parse_request(com[0:]).strip() + wcolors.color.ENDC)
             os.system("open -a /Applications/" + parser.word_space(parser.parse_request(com[0:]).strip()) + ".app")
         else:
-            print wcolors.color.RED + "Invalid command => " + parser.parse_request(com[
-                                                                                   0:]) + "." + wcolors.color.ENDC + wcolors.color.GREEN + " Trying search in Google." + wcolors.color.ENDC
-            webbrowser.open('https://www.google.com/search?q=' + parser.parse_request(com[0:]))
+            try:
+                subprocess.call(com)
+            except OSError:
+                invalid_command.main(com)
