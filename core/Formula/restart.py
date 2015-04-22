@@ -1,5 +1,5 @@
 import subprocess
-import wcolors
+from core import wcolors
 
 
 class Formula():

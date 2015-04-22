@@ -1,5 +1,5 @@
 import os
-import wcolors
+from core import wcolors
 
 
 class Formula():
