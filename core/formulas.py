@@ -1,10 +1,7 @@
 #!/usr/bin/env python
 import os
-
-
-def check_formulas():
-    return os.listdir(os.getcwd() + "/core/Formula")
+import parser
 
 
 def formulas_list():
-    return [w.replace('.py', "") for w in os.listdir(os.getcwd() + "/core/Formula")]
+    return [w.replace('.py', "") for w in parser.clear_list(os.listdir(os.getcwd() + "/core/Formula"))]
