@@ -1,4 +1,4 @@
-# Ale
+# Ale [![Build Status](https://travis-ci.org/darker0n/ale.svg?branch=testing_and_install)](https://travis-ci.org/darker0n/ale)
 <h3>Smart shell for more productive work.</h3>
 
 You can search in Google, Amazon, Google Maps, Youtube, Yahoo, Wolfram etc. from ale:
