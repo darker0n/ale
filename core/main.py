@@ -11,7 +11,7 @@ from core import formulas
 from core import invalid_command
 
 # List with all formulas
-formulas_list = parser.clear_list(formulas.formulas_list())
+formulas_list = formulas.formulas_list()
 # List with all applications
 applications = parser.applications_list()
 
@@ -39,7 +39,7 @@ def main():
             main()
 
         # Searching command in Formules
-        elif com[0] + ".py" in formulas.check_formulas():
+        elif com[0] in formulas.formulas_list():
             module = imp.load_source(com[0], "core/Formula/" + com[0] + ".py")
             formula = module.Formula(request=com[1:])
             formula.main()
