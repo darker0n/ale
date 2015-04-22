@@ -1,4 +1,4 @@
 pygoogle==0.6
 readline==6.2.4.1
 requests==2.6.0
-trash-cli==0.12.9.14.post0
+trash-cli==0.12.9.14
