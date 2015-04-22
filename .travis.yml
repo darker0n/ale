@@ -6,7 +6,9 @@ python:
   - "pypy"
 # command to install dependencies
 install:
-  - pip install .
+  - pip install imp
+  - pip install webbrowser
+  - pip install readline
   - pip install -r requirements.txt
 # command to run tests
 script: nosetests
