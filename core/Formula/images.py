@@ -1,5 +1,5 @@
 import webbrowser
-import wcolors
+from core import wcolors
 from core import parser
 
 
