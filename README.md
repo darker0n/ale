@@ -1,5 +1,5 @@
 # Ale [![Build Status](https://travis-ci.org/darker0n/ale.svg?branch=testing_and_install)](https://travis-ci.org/darker0n/ale)
-<h3>Smart shell for more productive work.</h3>
+<h3>Smart command line launcher for OS X.</h3>
 
 You can search in Google, Amazon, Google Maps, Youtube, Yahoo, Wolfram etc. from ale:
 
@@ -15,10 +15,12 @@ You can open applications from ale:
 You can open Gmail, Twitter, Google Drive from ale:
 
     ale> gmail
+    ale> twitter
     
-You can also empty trash, remove files etc.:
+You can also empty trash, remove files, restart computer etc.:
     
     ale> emptytrash
     ale> remove document
+    ale> restart
     
 Found a bug? Have an awesome idea? Please open an issue on this github page.
