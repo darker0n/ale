@@ -12,12 +12,13 @@ from core import invalid_command
 from core import aliase
 
 
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 # List with all formula files
 formulas_list = formulas.formulas_list()
 # List with all applications
 applications = parser.applications_list()
 # List with aliases
-aliases = os.listdir(os.getcwd() + "/core/Aliases")
+aliases = os.listdir(CURRENT_DIR + "/Aliases")
 
 commands = applications + formulas_list
 
@@ -47,7 +48,7 @@ def main():
 
         # Searching command in Formules
         elif com[0] in formulas.formulas_list():
-            module = imp.load_source(com[0], "core/Formula/" + com[0] + ".py")
+            module = imp.load_source(com[0], CURRENT_DIR + "/Formula/" + com[0] + ".py")
             formula = module.Formula(request=com[1:])
             formula.main()
 
