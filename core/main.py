@@ -34,6 +34,7 @@ def completer(text, state):
 # Start message.
 # Completer function (complete command with Tab)
 def start():
+    os.system("clear")
     readline.parse_and_bind("tab: complete")
     readline.set_completer(completer)
     print (wcolors.color.GREEN + "Welcome to ale, smart command line launcher for OS X." + wcolors.color.ENDC)
