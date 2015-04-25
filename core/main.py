@@ -20,7 +20,7 @@ applications = parser.applications_list()
 # List with aliases
 aliases = os.listdir(CURRENT_DIR + "/Aliases")
 
-commands = applications + formulas_list
+commands = applications + formulas_list + aliases
 
 
 def completer(text, state):
