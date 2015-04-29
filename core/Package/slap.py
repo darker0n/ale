@@ -11,6 +11,3 @@ class Package():
     def install(self):
         print(wcolors.color.GREEN + "Installing => " + wcolors.color.ENDC + wcolors.color.RED + self.name + wcolors.color.ENDC)
         os.system("curl -sL https://raw.githubusercontent.com/slap-editor/slap/master/install.sh | sh")
-
-    def main(self):
-        self.install()

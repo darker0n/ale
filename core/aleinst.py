@@ -27,7 +27,7 @@ class Aleinst():
             if self.request[0] in self.package_list():
                 module = imp.load_source(self.request[0], CURRENT_DIR + "/Package/" + self.request[0] + ".py")
                 package = module.Package(request=self.request[0:])
-                package.main()
+                package.install()
         else:
             print wcolors.color.RED + "Error: No arguments." + wcolors.color.ENDC
             self.usage()
