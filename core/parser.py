@@ -23,10 +23,7 @@ def word_space(path):
 
 
 def clear_list(list):
-    for f in list:
-        if f.startswith('.') or f.endswith("__") or f.endswith(".pyc"):
-            list.remove(f)
-    return list
+    return [f for f in list if not (f.startswith('.') or f.endswith("__") or f.endswith(".pyc") or f.endswith(".localized"))]
 
 
 def applications_list():
