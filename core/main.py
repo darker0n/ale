@@ -18,7 +18,7 @@ formulas_list = formulas.formulas_list()
 # List with all applications
 applications = parser.applications_list()
 # List with aliases
-aliases = os.listdir(CURRENT_DIR + "/Aliases")
+aliases = parser.clear_list(os.listdir(CURRENT_DIR + "/Aliases"))
 
 commands = applications + formulas_list + aliases
 
