@@ -1,9 +1,8 @@
 # Ale
 
 > [!IMPORTANT]
-> This project is archived and no longer maintained. It is kept public for
-> historical reference. Ale targets Python 2.7 and legacy versions of macOS and
-> is not expected to run on modern systems.
+> This project is archived and no longer maintained. Ale targets Python 2.7 and
+> legacy versions of macOS and is not expected to run on modern systems.
 
 Smart command line launcher for OS X.
 
